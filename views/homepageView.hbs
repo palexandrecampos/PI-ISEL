@@ -1,0 +1,20 @@
+
+{{> navbar }}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div id="jumbotron-homepage" class="jumbotron" >
+                <h1>Welcome to Chelas Open Internet Movie Application</h1>
+                <p>This is a web application to display data of movie database.</p>
+                <form class="form-inline" method="GET" action="/search">
+                    <input type="text" name="name" class="form-control mr-2" placeholder="Movie Name:" required>
+                    <input type="hidden" name="page" value="1">
+                    <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{> footer }}

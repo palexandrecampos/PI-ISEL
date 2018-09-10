@@ -1,0 +1,47 @@
+{{> navbar }}
+
+<div class="container mt-2">
+    <h1 align="center">{{list.name}}</h1>
+    <hr>
+    <div id="usersDiv" class="div">
+        <table class="table table-striped text-center my-auto">
+            <thead>
+            <tr>
+                <th>Users</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each users}}
+                {{showButtonToInviteUser ../list.username username ../list.listId ../user ../list.publicFlag}}
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div id="moviesListCards" class="row">
+        {{#each movies}}
+            <div id="movieCard{{id}}" class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="card card-inverse card-info">
+                    {{#if image}}
+                        <img class="card-img-top" src="{{image}}">
+                    {{else}}
+                        <img class="card-img-top" src="/images/default_image.png">
+                    {{/if}}
+                    <div class="card-block">
+                        <figure class="profile profile-inline">
+                            {{#if image}}
+                                <img src="{{image}}" class="profile-avatar">
+                            {{else}}
+                                <img src="/images/default_image.png" class="profile-avatar">
+                            {{/if}}
+                        </figure>
+                        <h4 class="card-title">{{name}}</h4>
+                        {{showButtonToRemoveMovie id ../list._id ../list.username ../user ../list.invitedUsers}}
+                    </div>
+                </div>
+            </div>
+
+        {{/each}}
+    </div>
+</div>
+{{> footer}}

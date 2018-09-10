@@ -1,0 +1,99 @@
+{{> navbar }}
+
+<div class="container">
+    <div class="row mt-4 mb-4">
+        <div class="col align-self-center text-center">
+            <img src='http://image.tmdb.org/t/p/w185//{{image}}'>
+        </div>
+        <div class="col mb-auto mt-auto">
+            <ul>
+                <li><strong>Title Of The Movie: </strong> {{title}}</li>
+                <li><strong>Tagline: </strong> {{tagline}}</li>
+                <li><strong>Movie Overview: </strong> {{overview}}</li>
+            </ul>
+            <div class="row">
+                {{#if user}}
+                    <h3>Add to List:</h3>
+                    <div class="btnToAddMovie">
+                        {{#each lists}}
+                            {{showBtnToAddMovieIfHadPermission ../user.username ../title ../image ../id _id invitedUsers username name}}
+                        {{/each}}
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col">
+            {{#each directors}}
+                <div id="widthDirectorCards" class="card mx-auto bg-dark text-white text-center">
+                    {{#if profile_path}}
+                        <img class="card-img-top" src="http://image.tmdb.org/t/p/w185//{{profile_path}}">
+                    {{else}}
+                        <img class="card-img-top"
+                             src="/images/default_image.png">
+                    {{/if}}
+                    <div class="card-body">
+                        <h4 class="card-title ">Director: {{name}}</h4>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <button onclick="showHideActors()" type="button" class="btn btn-info mb-3">Show/Hide Actors</button>
+    <div id=actorsLists>
+        <div class="row">
+            {{#each cast}}
+                <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                    <div class="card card-inverse card-info">
+                        {{#if profile_path}}
+                            <img class="card-img-top" src="http://image.tmdb.org/t/p/w185//{{profile_path}}">
+                        {{else}}
+                            <img class="card-img-top" src="/images/default_image.png">
+                        {{/if}}
+                        <div class="card-block">
+                            <figure class="profile profile-inline">
+                                {{#if profile_path}}
+                                    <img src="http://image.tmdb.org/t/p/w185//{{profile_path}}" class="profile-avatar">
+                                {{else}}
+                                    <img src="/images/default_image.png" class="profile-avatar">
+                                {{/if}}
+                            </figure>
+                            <h4 class="card-title">{{name}}</h4>
+                            <div class="card-text">
+                                <h6 class="card-title">Character: {{character}}</h6>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/actors/{{id}}">
+                                <button class="btn btn-info btn-sm">Go To Actor</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+    <hr>
+    {{#if user}}
+        <div class="row mt-2">
+            <div class="media">
+                <div class="media-content">
+                    <div class="field">
+                        <p class="control">
+                            <textarea id="commentBoxWidth" class="textarea" placeholder="Add a comment..."></textarea>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control">
+                            <button onclick="submitComment('{{id}}')" class="button">Post comment
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+    <div id="commentsList"></div>
+</div>
+{{> footer }}

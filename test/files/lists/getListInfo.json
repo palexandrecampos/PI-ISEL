@@ -1,0 +1,14 @@
+{
+  "_id": "06bb62904f4a2d6d4b5d74881f006372",
+  "_rev": "1-c09eb9df9ba8bc6ebed7ab703c3a1284",
+  "name": "Seen",
+  "username" : "ze",
+  "movies": [
+    {
+      "id": "168259",
+      "name": "Furious 7",
+      "image": "http://image.tmdb.org/t/p/w185///dCgm7efXDmiABSdWDHBDBx2jwmn.jpg",
+      "listName": "Seen"
+    }
+  ]
+}

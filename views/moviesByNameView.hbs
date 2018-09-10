@@ -1,0 +1,40 @@
+{{> navbar }}
+<div class="container">
+    <div class="row">
+        {{#each results}}
+            <div class="col-3 mb-2 mt-3">
+                <div class="card bg-dark text-white text-center">
+                    {{#if movieImage}}
+                        <img class="card-img-top" src="http://image.tmdb.org/t/p/w185//{{movieImage}}"/>
+                    {{else}}
+                        <img class="card-img-top" src="/images/default_image.png"/>
+                    {{/if}}
+                    <div class="card-body">
+                        <h5 class="card-title">{{title}} </h5>
+                        <p class="card-text">VoteAverage: {{voteAverage}} <i class="fa fa-star" aria-hidden="true"></i>
+                        </p>
+                        <p class="card/text"> ReleaseDate: {{releaseDate}} <i class="fa fa-calendar"
+                                                                              aria-hidden="true"></i></p>
+                        <a href="/movies/{{id}}" class="btn btn-primary">Go To Movie</a>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <p class="p">Página {{actualPage}} of {{totalPages}} ({{totalResults}} Resultados)</p>
+        </div>
+        <div class="col text-right">
+            <nav id="inLineBlock" aria-label="Page navigation">
+                <ul class="pagination">
+                    {{getFirstPage name}}
+                    {{getPrevious actualPage name}}
+                    {{getNext actualPage name totalPages}}
+                    {{getLastPage name totalPages}}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+{{> footer }}

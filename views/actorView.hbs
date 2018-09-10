@@ -1,0 +1,36 @@
+
+{{> navbar }}
+<div class="container">
+    <div class="row mt-4 mb-4">
+        <div class="col align-self-center text-center">
+            <img src="http://image.tmdb.org/t/p/w185//{{profileImage}}">
+        </div>
+        <div class="col">
+            <ul>
+                <li><strong>Actor Name: </strong> {{name}}</li>
+                <li><strong>Birthday Date: </strong> {{birthday}}</li>
+                <li><strong>Place Of Birth: </strong> {{placeOfBirth}}</li>
+                <li><strong>Biography: </strong> {{biography}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        {{#each cast}}
+            <div class="col-3 mb-2">
+                <div class="card bg-dark text-white text-center">
+                    {{#if poster_path}}
+                        <img class="card-img" src="http://image.tmdb.org/t/p/w185//{{poster_path}}"/>
+                    {{else}}
+                        <img class="card-img"
+                             src="/images/default_image.png"/>
+                    {{/if}}
+                    <div class="card-body">
+                        <a href="/movies/{{id}}" class="card-text text-center text-white"> <strong>
+                            Name: {{title}}</strong></a>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+{{> footer }}

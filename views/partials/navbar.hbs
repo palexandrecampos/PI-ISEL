@@ -1,0 +1,28 @@
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light">
+    <a id="elementWhite" class="nav-link" href="/home"> <i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+    <div class="collapse navbar-collapse">
+        <form class="form-inline" method="get" action="/search">
+            <input class="form-control mr-sm-2" type="text" name="name" placeholder="Movie Name" required>
+            <input type="hidden" name="page" value="1">
+            <button class="btn btn-info" type="submit">Search</button>
+        </form>
+    </div>
+    <ul class="navbar-nav mr-auto">
+        {{#if user}}
+            <li class="nav-item">
+                <a id="elementWhite" class="btn btn-success mr-2" href="/{{user.username}}/lists?page=1">{{user.username}}</a>
+            </li>
+            <li class="nav-item">
+                <a id="elementWhite" class="btn btn-primary" href="/logout">Logout</a>
+            </li>
+        {{else}}
+            <li class="nav-item">
+                <a id="elementWhite" class="btn btn-success mr-2" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a id="elementWhite" class="btn btn-primary" href="/register">Register</a>
+            </li>
+        {{/if}}
+
+    </ul>
+</nav>

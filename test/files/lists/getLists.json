@@ -1,0 +1,32 @@
+{
+  "total_rows": 3,
+  "offset": 0,
+  "rows": [
+    {
+      "id": "06bb62904f4a2d6d4b5d74881f006372",
+      "key": "06bb62904f4a2d6d4b5d74881f006372",
+      "value": {
+        "rev": "1-c09eb9df9ba8bc6ebed7ab703c3a1284"
+      },
+      "doc": {
+        "_id": "06bb62904f4a2d6d4b5d74881f006372",
+        "_rev": "1-c09eb9df9ba8bc6ebed7ab703c3a1284",
+        "name": "Seen",
+        "movies": []
+      }
+    },
+    {
+      "id": "06bb62904f4a2d6d4b5d74881f0078e2",
+      "key": "06bb62904f4a2d6d4b5d74881f0078e2",
+      "value": {
+        "rev": "1-5e3bf976950039b208c437027bc6acf4"
+      },
+      "doc": {
+        "_id": "06bb62904f4a2d6d4b5d74881f0078e2",
+        "_rev": "1-5e3bf976950039b208c437027bc6acf4",
+        "name": "Watch",
+        "movies": []
+      }
+    }
+  ]
+}
